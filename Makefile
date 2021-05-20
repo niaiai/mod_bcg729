@@ -1,7 +1,9 @@
 ################################
 ### FreeSwitch headers files found in libfreeswitch-dev ###
-FS_INCLUDES=/usr/include/freeswitch
-FS_MODULES=/usr/lib/freeswitch/mod
+DEEP=../../../../
+FS_INCLUDES=$(DEEP)src/include
+FS_LIBTELETONE_INCLUDE=$(DEEP)libs/libteletone/src
+FS_MODULES=/usr/local/freeswitch/mod
 ################################
 
 ### END OF CUSTOMIZATION ###
@@ -10,7 +12,7 @@ PROC?=$(shell uname -m)
 
 CFLAGS=-fPIC -O3 -fomit-frame-pointer -fno-exceptions -Wall -std=c99 -pedantic
 
-INCLUDES=-I/usr/include -Ibcg729/include -I$(FS_INCLUDES)
+INCLUDES=-I/usr/include -Ibcg729/include -I$(FS_INCLUDES) -I$(FS_LIBTELETONE_INCLUDE)
 LDFLAGS=-lm -Wl,-static -Lbcg729/src/.libs -lbcg729 -Wl,-Bdynamic
 
 all : mod_bcg729.o
