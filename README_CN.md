@@ -8,9 +8,11 @@ mod_bcg729
 例如： `cd /usr/local/src/freeswitch/src/mod/codecs`
 
 ```bash
+# use cmake3
+yum install -y cmake3
 git clone https://github.com/niaiai/mod_bcg729.git
 cd mod_bcg729
-make
+make && make install
 # 拷贝 mod_bcg729.so 到freeswitch的mod目录中
 
 # 卸载g729
